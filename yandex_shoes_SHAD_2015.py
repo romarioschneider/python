@@ -42,9 +42,9 @@ while i != len(list_size_sort):
 if h == 0:
     exit(1)
 else:
-    i = j + 1
+    i = (j + 1)
     while i != len(list_size_sort):
-        if list_size_sort[i] > (n + 3):
+        if list_size_sort[i] >= (n + 3):
             h = h + 1
             n = list_size_sort[i]
             i = i + 1
