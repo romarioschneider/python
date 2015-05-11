@@ -3,7 +3,6 @@ list_size_sort = []
 
 f = open('data.txt')
 
-i = 0
 for i in range(0, 3):
     line = f.readline()
     if i == 0:
@@ -23,9 +22,9 @@ for i in range(0, 3):
                 h = j
         list_size.append(int(line[h:len(line)].replace('\n', '')))
         
-if len(list_size) != count_shoes:
-    print('Wrong input data!')
-    exit(1)
+#if len(list_size) != count_shoes:
+#    print('Wrong input data!')
+#    exit(1)
     
 list_size_sort = sorted(list_size)
 
@@ -39,6 +38,7 @@ while i != len(list_size_sort):
         break
     else:
         i = i + 1
+        
 if h == 0:
     exit(1)
 else:
@@ -50,8 +50,6 @@ else:
             i = i + 1
         else:
             i = i + 1
-
-  
       
 print(h)
 #print(customer_size)
