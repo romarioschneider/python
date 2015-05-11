@@ -10,17 +10,9 @@ for i in range(0, 3):
     elif i == 1:
         count_shoes = int(line)
     else:
-        j = 0
-        h = 0
-        n = ''
-        for n in line:
-            if n != " ":
-                j = j + 1
-            else:
-                list_size.append(int((line[h:j])))
-                j = j + 1
-                h = j
-        list_size.append(int(line[h:len(line)].replace('\n', '')))
+        items = line.split(' ')
+        for i in items:
+            list_size.append(int(i))
 
 f.close()
         
