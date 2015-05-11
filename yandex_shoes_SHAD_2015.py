@@ -22,9 +22,9 @@ for i in range(0, 3):
                 h = j
         list_size.append(int(line[h:len(line)].replace('\n', '')))
         
-#if len(list_size) != count_shoes:
-#    print('Wrong input data!')
-#    exit(1)
+if len(list_size) != count_shoes:
+    print('Wrong input data!')
+    exit(1)
     
 list_size_sort = sorted(list_size)
 
@@ -52,7 +52,3 @@ else:
             i = i + 1
       
 print(h)
-#print(customer_size)
-#print(count_shoes)
-#print(list_size)
-#print(list_size_sort)
