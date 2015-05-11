@@ -21,6 +21,8 @@ for i in range(0, 3):
                 j = j + 1
                 h = j
         list_size.append(int(line[h:len(line)].replace('\n', '')))
+
+f.close()
         
 if len(list_size) != count_shoes:
     print('Wrong input data!')
