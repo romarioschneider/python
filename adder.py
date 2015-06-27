@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+#http://www.charlespetzold.com/code/
+
 import math
 
 def op_and(a,b):
