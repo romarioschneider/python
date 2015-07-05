@@ -25,5 +25,5 @@ try:
     mean = sum / len(numbers_list)
     print("numbers:", numbers_list)
     print("count =", len(numbers_list), "sum =", sum, "lowest =", lowest, "higest =", higest, "mean = ", mean)
-except IndexError as err:
-        print(err)
+except IndexError:
+        print("Not received any number")
