@@ -23,7 +23,26 @@ try:
         if i > higest:
             higest = i
     mean = sum / len(numbers_list)
-    print("numbers:", numbers_list)
+    print("numbers: ", numbers_list)
+    sorted_list = []
+    i = 0
+    numbers_list_l = len(numbers_list)
+    position = 0
+    while  numbers_list_l > 0:
+        min = numbers_list[i]
+        
+        n = i
+        while n < len(numbers_list):
+            if numbers_list[n] <= min:
+                min = numbers_list[n]
+                position = n
+            n = n + 1
+            
+        numbers_list.pop(position)   
+        sorted_list.append(min)
+        numbers_list_l = numbers_list_l - 1
+        
+    print(sorted_list)   
     print("count =", len(numbers_list), "sum =", sum, "lowest =", lowest, "higest =", higest, "mean = ", mean)
 except IndexError:
         print("Not received any number")
