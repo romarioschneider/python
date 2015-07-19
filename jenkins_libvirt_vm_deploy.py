@@ -14,28 +14,28 @@ def ex_remote_command(routeros_addr, ssh_key, routeros_port, routeros_user, comm
         return None
     results = proc.communicate()
     
-    return results
+    return results #return list with shell-process output
     
+#Processing list with int values and return unused port. Need range of TCP/UDP ports
 def get_free_port (start_port, stop_port):
     
-    out_list = ex_remote_command('172.22.22.222', '/var/lib/jenkins/.ssh/id_dsa', '50022', 'jenkins', 'ip firewall nat print chain=dstnat', 'dst-port', 9)[0].split("\n")
+    input_values = ex_remote_command('172.22.22.222', '/var/lib/jenkins/.ssh/id_dsa', '50022', 'jenkins', 'ip firewall nat print chain=dstnat', 'dst-port', 9)[0].split("\n")
     list_ports = []
-    for i in out_list:
+    for i in input_values:
         if i != '':
-            tmp = i.split("=")
+            tmp = i.split("=")  #Parsing lines e. g. "dst-port=21"
             list_ports.append(int(tmp[1]))
     list_ports_sorted =  sorted(list_ports)
-    #print(list_ports_sorted)
     
     i = 0
     left_position = None
     while i <= stop_port:
-        if start_port <= list_ports_sorted[i] <= stop_port:
+        if start_port <= list_ports_sorted[i] <= stop_port: #Finding first entry in specified port range on GW dst-nat table
             left_position = i
             break
         i = i + 1
-    #print(list_ports_sorted[left_position - 1:])
     
+    #Getting free IP port from specified range
     i = start_port
     while i <= stop_port:
         if i not in list_ports_sorted[left_position - 1:]:
