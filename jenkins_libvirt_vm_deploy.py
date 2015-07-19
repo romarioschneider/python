@@ -23,13 +23,13 @@ def get_free_port (start_port, stop_port):
     list_ports = []
     for i in input_values:
         if i != '':
-            tmp = i.split("=")  #Parsing lines e. g. "dst-port=21"
-            list_ports.append(int(tmp[1]))
+            list_ports.append(int(i.split("=")[1]))  #Parsing lines e. g. "dst-port=21"
+        
     list_ports_sorted =  sorted(list_ports)
     
     i = 0
     left_position = None
-    while i <= stop_port:
+    while i < len(list_ports_sorted):
         if start_port <= list_ports_sorted[i] <= stop_port: #Finding first entry in specified port range on GW dst-nat table
             left_position = i
             break
@@ -43,4 +43,4 @@ def get_free_port (start_port, stop_port):
         i = i + 1
     return False
 
-print(get_free_port(sys.argv[1], sys.argv[2]))
+print(get_free_port(int(sys.argv[1]), int(sys.argv[2])))
