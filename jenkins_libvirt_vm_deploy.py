@@ -5,7 +5,8 @@ import sys
 import os
 
 def ex_remote_command(routeros_addr, ssh_key, routeros_port, routeros_user, command_line, grep_expr, cut_column):
-    cmd = ['ssh -p {0} -i {1} {2}@{3} "{4}" | grep {5} | cut -d " " -f {6}'.format(routeros_port, ssh_key, routeros_user, routeros_addr, command_line, grep_expr, cut_column)]
+    cmd = ['ssh -p {routeros_port} -i {ssh_key} {routeros_user}@{routeros_addr} "{command_line}" | grep {grep_expr} | cut -d " " -f {cut_column}'.format(routeros_port=routeros_port, ssh_key=ssh_key, 
+				routeros_user=routeros_user, routeros_addr=routeros_addr, command_line=command_line, grep_expr=grep_expr, cut_column=cut_column)]
 
     proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
     r_code = proc.wait()
