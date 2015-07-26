@@ -35,8 +35,22 @@ else:
     x1 = (-b + root) / (2 * a)
     x2 = (-b - root) / (2 * a)
     
-equation = ("{0}x\N{SUPERSCRIPT TWO} + {1}x + {2} = 0 \N{RIGHTWARDS ARROW} x = {3}".format(a, b, c, x1))
-if x2 in not None:
-    equation += " or x = {0}".format(x2)
+if (0 + c) < 0:
+    sign_c = "- " + str(abs(c))
+elif (0 + c) > 0:
+    sign_c = "+ " + str(abs(c))
+else:
+    sign_c = ""
+    
+if (0 + b) < 0:
+    sign_b = "- " + str(abs(b)) + "x "
+elif (0 + b) > 0:
+    sign_b = "+ " + str(abs(b)) + "x "
+else:
+    sign_b = ""
+    
+equation = ("{a}x\N{SUPERSCRIPT TWO} {sign_b}{sign_c} = 0 \N{RIGHTWARDS ARROW} x = {x1}".format(a = a, sign_b = sign_b, sign_c = sign_c, x1 = x1))
+if x2 is not None:
+    equation += " or x = {x2}".format(x2 = x2)
     
 print(equation)
