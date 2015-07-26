@@ -26,7 +26,7 @@ def print_unicode_table(words):
 words = None
 if len(sys.argv) > 1:
     if sys.argv[1] in ("-h", "--help"):
-        print("usage: {0} [string]".format(sys.argv[0]))
+        print("usage: {0} [word1 | word2 word3 ...]".format(sys.argv[0]))
         word = 0
     else:
         words = list()
