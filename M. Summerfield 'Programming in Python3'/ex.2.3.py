@@ -73,10 +73,4 @@ def extract_fields(line):
         
     return fields
     
-# def escape_html(text):
-#     text = text.replace("&", "&amp;")
-#     text = text.replace("<", "&lt;")
-#     text = text.replace(">", "&agt;")
-#     return text
-    
 main()
