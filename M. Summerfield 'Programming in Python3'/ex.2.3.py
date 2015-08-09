@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import sys
+import xml.sax.saxutils
 
 def main():
     maxwidth = 100
@@ -41,7 +42,7 @@ def print_line(line, color, maxwidth):
             except ValueError:
                 field = field.title()
                 field = field.replace(" And ", " and ")
-                field = escape_html(field)
+                field = xml.sax.saxutils.escape(field)
                 if len(field) <= maxwidth:
                     print("<td>{0}</td>".format(field))
                 else:
@@ -72,10 +73,10 @@ def extract_fields(line):
         
     return fields
     
-def escape_html(text):
-    text = text.replace("&", "&amp;")
-    text = text.replace("<", "&lt;")
-    text = text.replace(">", "&agt;")
-    return text
+# def escape_html(text):
+#     text = text.replace("&", "&amp;")
+#     text = text.replace("<", "&lt;")
+#     text = text.replace(">", "&agt;")
+#     return text
     
 main()
