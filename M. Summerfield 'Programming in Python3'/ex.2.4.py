@@ -22,6 +22,13 @@ def main():
             break
     print_end()
     
+def process_options():
+    if len(sys.argv) > 1 and sys.argv[1] in ("-h", "--help"):
+        print("usage:\n {0} [maxwidth=int] [format=str] < infile.csv > outfile.html".format(sys.argv[0]))
+        return (None, None)
+    elif (sys.argv) == 1:
+        
+    
 def print_start():
     print("<table border='1'>")
         
